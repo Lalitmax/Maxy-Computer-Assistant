@@ -207,24 +207,16 @@ def wishme(text):
         printtext('good evening sir,\n I am maxy,  how may i help you')
         speak('good evening sir, I am maxi,  how may i help you')
 
-
 def sendmail(email, subject, contant, name):
     from email.message import EmailMessage
-    email_id = "lalitmaxbusiness@gmail.com"
-    email_pas = "iwitlggtpqxppmup"
+    email_id = "Enter your Gmail"
+    email_pas = "Enter your password"
 
     msg = EmailMessage()
     msg["subject"] = subject
     msg["from"] = "Lalit kumar yadav"
-    msg["to"] = email
+    msg["to"] = "To send Gmail"
     msg.set_content(contant)
-
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
-        smtp.login(email_id, email_pas)
-        smtp.send_message(msg)
-        # printtext("sent mail succesfully...")
-        speak("sent mail succesfully")
-        printtext("sent mail succesfully...")
 
 
 def lower(t):
