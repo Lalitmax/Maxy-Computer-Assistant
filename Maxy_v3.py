@@ -219,13 +219,13 @@ def wishme(text):
 
 def sendmail(email, subject, contant, name):
     from email.message import EmailMessage
-    email_id = "lalitmaxbusiness@gmail.com"
-    email_pas = "iwitlggtpqxppmup"
+    email_id = "Enter your Email"
+    email_pas = "Enter your password"
 
     msg = EmailMessage()
     msg["subject"] = subject
     msg["from"] = "Lalit kumar yadav"
-    msg["to"] = email
+    msg["to"] = email # (which person you want to send email, give email)
     msg.set_content(contant)
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
@@ -322,8 +322,7 @@ def doooo(text):
 
         city_name =strrequest
         you(strrequest)
-        data = requests.get("https://api.openweathermap.org/data/2.5/weather?q=" +
-                            city_name+"&appid=882bef32516f8990d82b762cae54604c").json()
+        data = requests.get("Enter api of api.openweathermap.org(got to on google and register then you will get api)").json()
 
         weather = "weather is, "+data["weather"][0]["main"]
         Temp = "temperature is, " + \
@@ -347,8 +346,7 @@ def doooo(text):
             strrequest += i
 
         city_name =strrequest
-        data = requests.get("https://api.openweathermap.org/data/2.5/weather?q=" +
-                            city_name+"&appid=882bef32516f8990d82b762cae54604c").json()
+        data = requests.get("Enter api of api.openweathermap.org(got to on google and register then you will get api)").json()
 
         weather = "weather is, "+data["weather"][0]["main"]
         Temp = "temperature is, " + \
