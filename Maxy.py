@@ -1,13 +1,14 @@
 # Maxy
 import datetime # fatch date time 
 
-import speech_recognition as sr  # for speech recog..
+import speech_recognition as sr  # type: ignore # for speech recog..
 import pyttsx3 # text to speech
 import smtplib  # for email send
 
 import webbrowser  # for search web sites
 from googletrans import Translator # translator
 import os   # open file 
+from AppOpener import open
 
 import subprocess  # for Run any application
 import random  # generate random number
@@ -25,6 +26,7 @@ import sys  # no
 
 import Attendancer as atd # this is a function not module...
 from tkinter import * # for making gui
+import psutil # for closing app
 
 wind = Tk()
 from PIL import ImageTk, Image
@@ -118,7 +120,6 @@ def speak(text):
 
 
 # app opener
-from AppOpener import open
 
 
 def appopen(text):
@@ -169,7 +170,6 @@ def appopen(text):
 
 
 
-import psutil # for closing app
 
 def close_app(app_name):
     # returns names of running processes
@@ -242,26 +242,24 @@ def lower(t):
 
 #  take command for do anything
 def command():
-    
     r = sr.Recognizer()
+    text = ""  # Initialize text to an empty string
+
     with sr.Microphone() as mic:
-        # print('listening...')
-
-        r.pause_threshold = 5
-        audio = r.listen(mic, timeout=45)
-
-    try:
-        print('recognizing...')
-        text = r.recognize_google(audio,language="en-in")
-        text = text.lower()
-    except Exception as e:
-        printtext(e)
-        return text
-    return text
+        print('listening...')
+        r.pause_threshold = 0.5  # Reduced pause threshold for better responsiveness
+        try:
+            audio = r.listen(mic, timeout=45)  # Listen for audio with a timeout
+            print('recognizing...')
+            text = r.recognize_google(audio, language="en-in")  # Recognize speech
+            text = text.lower()
+        except Exception as e:
+            print(e)  # Print the error message
+            return ""  # Return empty string on exception
+    return text  # Return recognized text
 
 
 def doooo(text):
-    
     you(text)
     if text in ["exit", "quit", "stop"]:
                 exit()
@@ -278,7 +276,7 @@ def doooo(text):
             
 
     elif "open gmail account" in text:
-        rm = openpyxl.load_workbook("Chitkara_email.xlsx")
+        rm = openpyxl.load_workbook("Excels/Chitkara_email.xlsx")
 
         sh1 = rm["Sheet1"]
 
@@ -937,7 +935,6 @@ def doooo(text):
 
 if __name__ == '__main__':
     def karo():
-                
         speak("Listening start")
         
         text = command()
@@ -945,6 +942,7 @@ if __name__ == '__main__':
        
 
     def func():
+         
         x = var.get().lower()
         doooo(x)
 
@@ -963,7 +961,7 @@ if __name__ == '__main__':
     wind.title("Maxy")
 
 #  for icon
-    path1 = resource_path("mic.png")
+    path1 = resource_path("Images/mic.png")
     imj = PhotoImage(file=path1)
     wind.iconphoto(False, imj)
 
@@ -995,19 +993,18 @@ if __name__ == '__main__':
     mylabel = Label(wind,font=("arial",20),bg='#1570CB',justify="left")
     mylabel.pack()
     # show image
-    path2 = resource_path("mic.png")
+    path2 = resource_path("Images/mic.png")
     my_pic5 = Image.open(path2)
 
 
-    resize_pic5 = my_pic5.resize((100,100
-                                  ), Image.ANTIALIAS)
+    resize_pic5 = my_pic5.resize((100,100), Image.LANCZOS)
     new_pic5 = ImageTk.PhotoImage(resize_pic5)
     
     lbl=Label(wind,bg="#108cff").place(x=290,y=60)
     
    
 
-    path3 = resource_path("searchicon.png")
+    path3 = resource_path("Images/searchicon.png")
     my_pic = Image.open(path3)
 
     resize_pic = my_pic.resize((53, 52), Image.ANTIALIAS)
@@ -1015,7 +1012,7 @@ if __name__ == '__main__':
 
     
     # wlcome to maxy
-    path4 = resource_path("wctm.png")
+    path4 = resource_path("Images/wctm.png")
     my_pic_wctm = Image.open(path4)
 
     resize_pic_wctm = my_pic_wctm.resize((388, 124), Image.ANTIALIAS)
@@ -1050,7 +1047,7 @@ if __name__ == '__main__':
         atd.makeAt()
     #  open excel file
     def openexcel():
-        os.startfile('Attendancer.xlsx')
+        os.startfile('Excels/Attendancer.xlsx')
 
     file_manu4 = Menu(menuBar)
     menuBar.add_cascade(label="Attendancer", menu=file_manu4,activeforeground="#108cff",activebackground="#108cff")

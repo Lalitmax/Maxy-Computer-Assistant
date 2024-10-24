@@ -43,7 +43,7 @@ def comaaaaand(name):
     
 
 
-rm = openpyxl.load_workbook("Attendancer.xlsx")
+rm = openpyxl.load_workbook("Excels/Attendancer.xlsx")
 
 sh1 = rm["Sheet1"]
 sh2 = rm["Sheet2"]
@@ -62,13 +62,10 @@ def makeAt():
 
         if ("present sir" in rc) or ("yes sir" in rc) or ("sir present" in rc):
             sh2.cell(row=i, column=1+day, value="Present")
-            rm.save("Attendancer.xlsx")
+            rm.save("Excels/Attendancer.xlsx")
 
         else:
             sh2.cell(row=i, column=1+day, value="Not Present")
-            rm.save("Attendancer.xlsx")
+            rm.save("Excels/IAttendancer.xlsx")
 
-
-# makeAt()
-
-# atd
+ 

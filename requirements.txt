@@ -1,0 +1,10 @@
+PyAudio
+SpeechRecognition
+appopener
+screen-brightness-control
+googlesearch-python
+googletrans
+pyttsx3
+openpyxl
+Wikipedia
+psutil
