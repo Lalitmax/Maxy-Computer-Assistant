@@ -4,6 +4,9 @@
 ## Description
 
 Developed a voice-activated assistant that manages attendance by marking users as present or absent based on voice confirmation. The assistant can open and close applications, perform web searches, provide weather updates, send emails, and solve math problems.
+## Sample Screenshots
+![Screenshot 2024-10-24 205304](https://github.com/user-attachments/assets/2bcdb59a-ce32-4f2a-9a02-b89ab63aa553)
+![Screenshot 2024-10-24 205359](https://github.com/user-attachments/assets/d4bd7a2f-2d23-461e-8790-0f7a955555e7)
 
 ## Features
 
