@@ -276,7 +276,7 @@ def doooo(text):
             
 
     elif "open gmail account" in text:
-        rm = openpyxl.load_workbook("Excels/Chitkara_email.xlsx")
+        rm = openpyxl.load_workbook("Excels/Chitkara_temp_email.xlsx")
 
         sh1 = rm["Sheet1"]
 
