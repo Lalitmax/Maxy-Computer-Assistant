@@ -1,6 +1,6 @@
 # Python Bytecode
 __pycache__/
-
+__pycache__
 # Environment Variables
 .env
 
