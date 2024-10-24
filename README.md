@@ -1,9 +1,9 @@
  
-# Voice-Activated Assistant with App Control and Attendance Management
+# Voice Assistant for App Control and Attendance Tacker                                                                     
 
 ## Description
 
-This project is a **Voice-Activated Assistant** that allows users to interact with their computer through voice commands. It can perform various tasks such as opening applications, checking the weather, sending emails, solving math problems, and managing attendance based on voice confirmations.
+Developed a voice-activated assistant that manages attendance by marking users as present or absent based on voice confirmation. The assistant can open and close applications, perform web searches, provide weather updates, send emails, and solve math problems.
 
 ## Features
 
